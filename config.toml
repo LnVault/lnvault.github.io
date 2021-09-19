@@ -1,0 +1,4 @@
+baseURL = 'https://lnvault.github.io/'
+languageCode = 'en-us'
+title = 'LnVault'
+theme = "ananke"
