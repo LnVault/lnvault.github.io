@@ -14,7 +14,7 @@ Satoshi-Islands requires
 
 ## Quick Start
 
-Join the server "satoshi-islands.lnvault.com" you will be transported to the spawn island.
+Join the server "satoshi-islands.net" you will be transported to the spawn island.
 
 ![Spawn](images/spawn.png)
 
