@@ -1,12 +1,12 @@
 ---
 title: "Installing & Configuring LnVault"
-date: 2021-10-12
+date: 2023-03-24
 draft: false
 ---
 
 LnVault is installed as a standard SpigotMC/PaperMC plugin.
 <!--more--> 
-Obtain a copy of the plugin by either [building](../building) or [downloading](/binaries/lnvault-1.0-SNAPSHOT.jar) the latest release.
+Obtain a copy of the plugin by either [building](../building) or [downloading](/binaries/lnvault-1.1-SNAPSHOT.jar) the latest release.
 
 ## Pre-Requisites
 
@@ -37,7 +37,9 @@ Configuration is performed using the /lnconfig command
 |Config Key|Description|Default Value|
 |----------|-----------|-------------|
 |deposit.limit|Limits the amounts of Satoshis that can be deposited in a 24 hour period|1000|
+|deposit.description|Description of the deposit invoice. {0} will be replaced with the local deposit value|LnVault Deposit ${0}|
 |withdrawal.limit|Limits the amounts of Satoshis that can be withdrawn in a 24 hour period|1000|
+|withdrawal.description|Description of the deposit invoice. {0} will be replaced with the local deposit value. {1} will be replaced with the withdrawal ID. The description MUST contain a {1} token|LnVault Withdrawal ${0} {1}|
 |vault.exchangerate|Exchange rate from BTC to in game currency. | 1000000 --> 0.01 in game = 1 Satoshi|
 |vault.joingreeting|Greeting displayed on player joining the server||
 |opennode.deposit.key|OpenNode API key for Deposits||
