@@ -1,12 +1,12 @@
 ---
 title: "Installing & Configuring LnVault"
-date: 2023-03-24
+date: 2023-03-25
 draft: false
 ---
 
 LnVault is installed as a standard SpigotMC/PaperMC plugin.
 <!--more--> 
-Obtain a copy of the plugin by either [building](../building) or [downloading](/binaries/lnvault-1.1-SNAPSHOT.jar) the latest release.
+Obtain a copy of the plugin by either [building](../building) or [downloading](/binaries/lnvault-1.2-SNAPSHOT.jar) the latest release.
 
 ## Pre-Requisites
 
@@ -44,6 +44,8 @@ Configuration is performed using the /lnconfig command
 |vault.joingreeting|Greeting displayed on player joining the server||
 |opennode.deposit.key|OpenNode API key for Deposits||
 |opennode.withdraw.key|OpenNode API key for Withdrawals||
+|opennode.callback.port|TCP Port for the internal web hook server. A server restart is needed after changing this setting||
+|opennode.callback.url|Base URL at which the web hook server can be reached||
 
 For a minimal configuration only the opennode.deposit.key must be set.
 
@@ -52,6 +54,26 @@ For a minimal configuration only the opennode.deposit.key must be set.
 ```
 
 **Caution any user with lnvault.config permission will be able to read the API keys**
+
+## Web hook configuration
+
+To improve the detection of completed withdrawals it is advised to configure the internal web hook server. Configure the opennode.callback.port to a port number that is reachable from the internet.
+
+```console
+/lnconfig set opennode.callback.port <PortNumber>
+```
+
+To complete the web hook configuration you must set the URL at which the web hook server can be reached
+
+```console
+/lnconfig set callback.url http://yourserver:portnumber
+```
+
+** Remember to set the port number in the URL. **
+
+Now restart the minecraft server to start the web hook server.
+
+During deposits and withdrawals opennode will now make calls to the web hook server to update the status of the deposit/withdrawal.
 
 ## Permissions
 
