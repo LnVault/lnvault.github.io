@@ -66,7 +66,7 @@ To improve the detection of completed withdrawals it is advised to configure the
 To complete the web hook configuration you must set the URL at which the web hook server can be reached
 
 ```console
-/lnconfig set callback.url http://yourserver:portnumber
+/lnconfig set opennode.callback.url http://yourserver:portnumber
 ```
 
 ** Remember to set the port number in the URL. **
