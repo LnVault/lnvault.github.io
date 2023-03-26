@@ -60,3 +60,14 @@ Once the payment has sent the invoice will update to show the payment status.
 ![Withdrawal Sent](images/withdrawalsent.png)
 
 Your lightning withdrawal is now available in your wallet and your in game balance has been reduced. Check your economy plugin documenation for details on how to check your balance. For EssentialsX the /balance command can be used to check your balance.
+
+# Withdraw to Lightning Address
+
+A lightning address can be configured using the /lnuser command. e.g.
+
+```console
+/lnuser set lnaddress myuser@ln.tips
+```
+
+any withdrawal initiaited with the \lnwithdraw command will now send directly to this lnaddress without the need to scan a QR code.
+

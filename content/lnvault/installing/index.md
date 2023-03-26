@@ -1,12 +1,12 @@
 ---
 title: "Installing & Configuring LnVault"
-date: 2023-03-25
+date: 2023-03-26
 draft: false
 ---
 
 LnVault is installed as a standard SpigotMC/PaperMC plugin.
 <!--more--> 
-Obtain a copy of the plugin by either [building](../building) or [downloading](/binaries/lnvault-1.2-SNAPSHOT.jar) the latest release.
+Obtain a copy of the plugin by either [building](../building) or [downloading](/binaries/lnvault-1.3-SNAPSHOT.jar) the latest release.
 
 ## Pre-Requisites
 
@@ -34,18 +34,42 @@ You can now start your minecraft server
 
 Configuration is performed using the /lnconfig command
 
-|Config Key|Description|Default Value|
-|----------|-----------|-------------|
-|deposit.limit|Limits the amounts of Satoshis that can be deposited in a 24 hour period|1000|
-|deposit.description|Description of the deposit invoice. {0} will be replaced with the local deposit value|LnVault Deposit ${0}|
-|withdrawal.limit|Limits the amounts of Satoshis that can be withdrawn in a 24 hour period|1000|
-|withdrawal.description|Description of the deposit invoice. {0} will be replaced with the local deposit value. {1} will be replaced with the withdrawal ID. The description MUST contain a {1} token|LnVault Withdrawal ${0} {1}|
-|vault.exchangerate|Exchange rate from BTC to in game currency. | 1000000 --> 0.01 in game = 1 Satoshi|
-|vault.joingreeting|Greeting displayed on player joining the server||
-|opennode.deposit.key|OpenNode API key for Deposits||
-|opennode.withdraw.key|OpenNode API key for Withdrawals||
-|opennode.callback.port|TCP Port for the internal web hook server. A server restart is needed after changing this setting||
-|opennode.callback.url|Base URL at which the web hook server can be reached||
+- ```deposit.limit```
+  - Limits the amounts of Satoshis that can be deposited in a 24 hour period
+  - *Default Value:* ```1000```
+- ```deposit.description```
+  - Description of the deposit invoice. {0} will be replaced with the local deposit value
+  - *Default Value:* ```LnVault Deposit ${0}```
+- ```withdrawal.limit```
+  - Limits the amounts of Satoshis that can be withdrawn in a 24 hour period value
+  - *Default Value:* ```1000```
+- ```withdrawal.description```
+  - Description of the deposit invoice. {0} will be replaced with the local deposit value. {1} will be replaced with the withdrawal ID. The description MUST contain a {1} token
+  - *Default Value:* ```LnVault Withdrawal ${0} {1}```
+- ```vault.exchangerate```
+  - Exchange rate from BTC to in game currency.
+  - *Default Value:* ```1000000``` --> 0.01 in game = 1 Satoshi
+- ```vault.joingreeting```
+  - Greeting displayed on player joining the server
+  - *Default Value:*
+- ```opennode.deposit.key```
+  - OpenNode API key for Deposits
+  - *Default Value:*
+- ```opennode.withdraw.key```
+  - OpenNode API key for Withdrawals
+  - *Default Value:*
+- ```opennode.callback.port```
+  - TCP Port for the internal web hook server. **A server restart is needed after changing this setting.**
+  - *Default Value:*
+- ```opennode.callback.url```
+  - Base URL at which the web hook server can be reached. **Don't forget to include the port number configured as the ```opennode.callback.port```
+  - *Default Value:*
+- ```http.retries```
+  - Number of retries in case of http connection issues.
+  - *Default Value:*  ```3```
+- ```http.timeoutmillis```
+  - Timeout in milliseconds to wait for http connections and data.
+  - *Default Value:*  ```1000``` --> 1 second
 
 For a minimal configuration only the opennode.deposit.key must be set.
 
@@ -86,3 +110,11 @@ The following permissions are supported
 |lnvault.config|Enables a user to read and write configuration via the lnconfig command|
 
 **Caution any user with lnvault.config permission will be able to read the API keys**
+
+## User Configuration
+
+User specific configuration is performed using the /lnuser command
+
+- ```lnaddress```
+  - Setting this to LN address will cause \lnwithdraw to automatically send the withdrawn funds to this address. without requiring a QR code to be scanned.
+  - *Default Value:* 
